@@ -1,20 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
-  { path: '/', component: () => import('./pages/HomePage/HomePage.vue') },
+  { path: '/', component: () => import('../pages/HomePage/HomePage.vue') },
   {
     path: '/Products',
-    component: () => import('./pages/ProductsPage/ProductsPage.vue'),
+    component: () => import('../pages/ProductsPage/ProductsPage.vue'),
   },
   {
     path: '/Product/:id',
     component: () =>
-      import('./pages/ProductDetailsPage/ProductDetailsPage.vue'),
+      import('../pages/ProductDetailsPage/ProductDetailsPage.vue'),
   },
-  { path: '/Cart', component: () => import('./pages/CartPage/CartPage.vue') },
+  { path: '/Cart', component: () => import('../pages/CartPage/CartPage.vue') },
   {
     path: '/Favorites',
-    component: () => import('./pages/FavoritesPage/FavoritesPage.vue'),
+    component: () => import('../pages/FavoritesPage/FavoritesPage.vue'),
   },
   {
     path: '/:catchAll(.*)',

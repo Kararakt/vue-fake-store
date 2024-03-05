@@ -5,7 +5,7 @@ import { computed } from 'vue';
 import { sumBy } from 'lodash';
 
 import { cartProducts } from '../../utils/constants';
-import router from '../../router';
+import router from '../../router/router';
 
 import MyButton from '../../components/UI/MyButton/MyButton.vue';
 import CartBlock from '../../components/CartBlock/CartBlock.vue';

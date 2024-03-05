@@ -6,7 +6,7 @@ import { orderBy } from 'lodash';
 
 import { selectArray, radioArray } from '../../utils/constants';
 import { products, isActiveLoader } from '../../utils/productHelper';
-import router from '../../router';
+import router from '../../router/router';
 
 import MyInput from '../../components/UI/MyInput/MyInput.vue';
 import MySelect from '../../components/UI/MySelect/MySelect.vue';
