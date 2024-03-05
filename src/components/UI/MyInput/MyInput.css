@@ -1,0 +1,23 @@
+.input {
+  color: var(--f-black);
+  border: 1px solid var(--f-black);
+  border-radius: 2rem;
+  padding: 1rem 1.5rem;
+  outline: 0;
+  box-sizing: border-box;
+  transition: all 0.35s linear;
+}
+
+.input:focus,
+.input:hover {
+  border-color: var(--f-yellow);
+}
+
+.input::placeholder {
+  transition: all 0.35s linear;
+  color: var(--f-black);
+}
+
+.input:focus::placeholder {
+  color: var(--f-yellow);
+}

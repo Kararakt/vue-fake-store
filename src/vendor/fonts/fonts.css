@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Manrope"),
+    url("../fonts/Manrope/Manrope-Regular.woff2") format("woff2"),
+    url("../fonts/Manrope/Manrope-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Manrope"),
+    url("../fonts/Manrope/Manrope-Semibold.woff") format("woff2"),
+    url("../fonts/Manrope/Manrope-Semibold.woff2") format("woff");
+}
+
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Manrope"),
+    url("../fonts/Manrope/Manrope-Bold.woff2") format("woff2"),
+    url("../fonts/Manrope/Manrope-Bold.woff") format("woff");
+}

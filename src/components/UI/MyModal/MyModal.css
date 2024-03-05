@@ -1,0 +1,143 @@
+.modal {
+  position: fixed;
+  z-index: 30;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal__content {
+  background-color: #fff;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.5rem;
+  min-height: 3.5rem;
+  min-width: 18rem;
+  max-width: 40rem;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.modal__close {
+  color: var(--f-yellow);
+  position: absolute;
+  height: 2rem;
+  width: 2.5rem;
+  cursor: pointer;
+  right: -2rem;
+  top: -2.5rem;
+  transition: all 0.35s linear;
+}
+
+.modal__close:hover {
+  opacity: 0.5;
+}
+
+.modal__title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal__image-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.modal__image {
+  height: 15rem;
+  max-width: 15rem;
+  display: block;
+  object-fit: contain;
+}
+
+.modal__image-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: 1.125rem;
+  color: var(--f-black);
+}
+
+.button_type_modal {
+  border: 2px solid var(--f-red);
+  background-color: transparent;
+  color: var(--f-red);
+}
+
+.modal__image-title {
+  color: var(--f-red);
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.button_type_modal:hover {
+  background-color: var(--f-red);
+  color: #fff;
+}
+
+.modal-enter-active {
+  transition: opacity 0.5s ease;
+}
+
+.modal-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  transition: opacity 0.5s ease;
+  opacity: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .modal {
+    padding: 0 1rem;
+  }
+
+  .modal__content {
+    padding: 1rem;
+  }
+
+  .modal__close {
+    top: -3rem;
+    right: -0.5rem;
+  }
+
+  .modal__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .modal__image {
+    max-width: 100%;
+  }
+
+  .modal__image-container {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .modal__image-title {
+    font-size: 1rem;
+  }
+
+  .modal__title {
+    font-size: 1.125rem;
+  }
+}

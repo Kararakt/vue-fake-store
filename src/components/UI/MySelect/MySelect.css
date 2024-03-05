@@ -1,0 +1,41 @@
+.select {
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  flex: 1;
+  padding: 0 1rem;
+  color: #fff;
+  background-color: var(--f-yellow);
+  background-image: none;
+  cursor: pointer;
+}
+
+.select::-ms-expand {
+  display: none;
+}
+
+.select__container {
+  position: relative;
+  display: flex;
+  width: 15rem;
+  height: 2rem;
+  border-radius: 0.25em;
+  overflow: hidden;
+}
+
+.select__container::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.35rem 0.5rem;
+  background-color: var(--f-yellow);
+  color: var(--f-black);
+  transition: 0.35s all ease;
+  pointer-events: none;
+}
+
+.select__container:hover::after {
+  color: var(--f-red);
+}

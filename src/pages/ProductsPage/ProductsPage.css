@@ -1,0 +1,28 @@
+.products__container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.products__tab {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.products__tab-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--f-black);
+  cursor: pointer;
+  transition: all 0.35s linear;
+}
+
+.products__tab-title:hover {
+  color: var(--f-yellow);
+}
+
+.products__tab-title_active {
+  color: var(--f-yellow);
+}

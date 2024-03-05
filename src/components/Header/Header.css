@@ -1,0 +1,128 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--f-yellow);
+  padding: 1rem;
+  box-sizing: border-box;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.header__container {
+  position: relative;
+  min-width: 4rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.header__logo {
+  width: 2.875rem;
+  height: 2.875rem;
+  object-fit: cover;
+}
+
+.header__logo_type_black {
+  z-index: 1;
+}
+
+.header__logo_type_white {
+  position: absolute;
+  left: 1rem;
+}
+
+.header__cart-count {
+  color: var(--f-red);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.header__links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header__link {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--f-black);
+  text-decoration: none;
+  transition: all 0.35s linear;
+}
+
+.header__link:hover,
+.header__link_active {
+  opacity: 0.65;
+}
+
+.header__menu-icon {
+  display: none;
+}
+
+@media screen and (max-width: 468px) {
+  .header {
+    flex-direction: column-reverse;
+    align-items: start;
+  }
+
+  .header__menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .header__menu_active {
+    opacity: 1;
+    visibility: visible;
+    height: 100%;
+  }
+
+  .header__links {
+    flex-direction: column;
+    padding-bottom: 1rem;
+  }
+
+  .header__menu-icon {
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    transition: all 0.5s ease;
+  }
+
+  .header__menu-icon:hover {
+    opacity: 0.5;
+  }
+
+  .header__bar-icon {
+    display: block;
+    height: 0.3125rem;
+    width: 2.5rem;
+    background: #fff;
+    transition: all 0.5s ease;
+  }
+
+  .header__bar-icon_type_middle {
+    margin: 0.5rem 0;
+  }
+
+  .header__menu-icon_active .header__bar-icon_type_top {
+    transform: translateY(0.8rem) rotateZ(45deg);
+  }
+
+  .header__menu-icon_active .header__bar-icon_type_middle {
+    width: 0;
+  }
+
+  .header__menu-icon_active .header__bar-icon_type_bottom {
+    transform: translateY(-0.8125rem) rotateZ(-45deg);
+  }
+}
