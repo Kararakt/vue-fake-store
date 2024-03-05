@@ -1,7 +1,45 @@
-# Vue 3 + Vite
+## Vue Fake Store 
+Это проект интернет-магазина, созданный с использованием Vue 3 и Fake Store API. Он предлагает пользователям бесшовный опыт покупок в интернете.
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Содержание
+- [Основные функции](#основные-функции)
+- [Технологии](#технологии)
+- [Требования](#требования)
+- [Установка](#установка)
+- [Ссылка на проект](#ссылка-на-проект)
 
-## Recommended IDE Setup
+## Основные функции
+- Просмотр товаров: Пользователи могут просматривать список товаров с подробным описанием каждого товара.
+- Управление корзиной: Пользователи могут добавлять товары в корзину, изменять количество товаров в корзине и удалять товары из корзины.
+- Список избранного: Пользователи могут добавлять товары в список избранного для последующего просмотра.
+- Чекаут: Пользователи могут просматривать общую стоимость товаров в корзине.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Технологии
+- Vite
+- HTML
+- CSS
+- JavaScript
+- Vue 3
+- Fake Store API
+
+## Требования
+Для запуска проекта, необходимо установить:
+- [NodeJS](https://nodejs.org/en/download)
+- [pnpm](https://pnpm.io/installation)
+
+## Установка
+1. Клонируйте репозиторий
+```sh
+git@github.com:Kararakt/vue-fake-store.git
+```
+2. Установите все необходимые PNPM пакеты
+```sh
+pnpm install
+```
+3. Запустите проект
+```sh
+pnpm dev
+```
+
+## Ссылка на проект
+https://vue-fake-store.vercel.app
