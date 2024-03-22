@@ -18,18 +18,30 @@
 
 .home__filter {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   margin-top: 1.5rem;
+}
+
+.home__filter-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.home__checkbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .input_type_text {
   width: 100%;
 }
 
-@media screen and (max-width: 468px) {
-  .home__filter {
+@media screen and (max-width: 648px) {
+  .home__filter-container {
     flex-direction: column;
   }
 }

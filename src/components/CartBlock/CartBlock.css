@@ -74,8 +74,8 @@
 
 @media screen and (max-width: 748px) {
   .cart-block {
-    border-top: 2px solid var(--f-yellow);
-    border-bottom: 2px solid var(--f-yellow);
+    border-top: 0.125rem solid var(--f-yellow);
+    border-bottom: 0.125rem solid var(--f-yellow);
     padding: 1rem 0;
   }
 }

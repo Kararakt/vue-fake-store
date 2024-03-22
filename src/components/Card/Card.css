@@ -1,5 +1,5 @@
 .card {
-  border: 1px solid var(--f-yellow);
+  border: 0.0625rem solid var(--f-yellow);
   padding: 1rem;
   border-radius: 0.5rem;
   max-width: 28rem;
@@ -10,7 +10,7 @@
 }
 
 .card:hover {
-  box-shadow: 0 5px 22px rgb(0, 0, 0, 0.2);
+  box-shadow: 0 0.3125rem 1.375rem rgb(0, 0, 0, 0.2);
 }
 
 .card__container {
@@ -95,7 +95,8 @@
 .button_type_card {
   background-color: var(--f-yellow);
   color: #fff;
-  border: 2px solid var(--f-yellow);
+  border: 0.125rem solid var(--f-yellow);
+  width: 100%;
 }
 
 .button_type_card:hover {

@@ -1,16 +1,15 @@
-import { ref } from 'vue';
-
+import { Products } from './../models/models';
 import { Api } from './api';
 
-const api = new Api({
-  baseUrl: 'https://fakestoreapi.com/products',
-  headers: {
+const api = new Api(
+  'https://fakestoreapi.com/products',
+  new Headers({
     'Content-Type': 'application/json',
-  },
-});
+  })
+);
 
-export const products = ref([]);
-export const isActiveLoader = ref(false);
+export const products = ref<Products[]>([]);
+export const isActiveLoader = ref<boolean>(false);
 
 const getProducts = async () => {
   isActiveLoader.value = true;

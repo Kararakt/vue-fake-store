@@ -1,29 +1,29 @@
-<script setup>
+<script setup lang="ts">
 import './MyModal.css';
 
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
+const emits = defineEmits<{
+  (event: 'closeModal'): void;
+  (event: 'update:modelValue', value: boolean): void;
+}>();
 
-const emits = defineEmits(['closeModal', 'update:modelValue']);
+const props = defineProps<{ modelValue: boolean }>();
 
-const props = defineProps({
-  modelValue: Boolean,
-});
+const modal = ref<Element | null>(null);
 
-const modal = ref(null);
 const modelUpdate = computed({
   get: () => props.modelValue,
-  set: (newValue) => emits('update:modelValue', newValue),
+  set: (newValue: boolean) => emits('update:modelValue', newValue),
 });
 
 const closeModal = () => emits('closeModal');
 
-const handleCloseByEsc = (event) => {
+const handleCloseByEsc = (event: KeyboardEvent) => {
   if (event.key === 'Escape' && modelUpdate.value) {
     closeModal();
   }
 };
 
-const handleCloseByOverlay = (event) => {
+const handleCloseByOverlay = (event: Event) => {
   if (event.target === modal.value) {
     closeModal();
   }
@@ -31,11 +31,13 @@ const handleCloseByOverlay = (event) => {
 
 const addEventListeners = () => {
   document.addEventListener('keydown', handleCloseByEsc);
+
   document.addEventListener('click', handleCloseByOverlay);
 };
 
 const removeEventListeners = () => {
   document.removeEventListener('keydown', handleCloseByEsc);
+
   document.removeEventListener('click', handleCloseByOverlay);
 };
 
@@ -44,7 +46,7 @@ onMounted(addEventListeners);
 onUnmounted(removeEventListeners);
 
 watch(modelUpdate, () => {
-  document.body.classList.toggle('page_scroll', modelUpdate.value);
+  document.body.style.overflowY = modelUpdate.value ? 'hidden' : 'auto';
 });
 </script>
 

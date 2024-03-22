@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import './Footer.css';
 
 const currentYear = new Date().getFullYear();

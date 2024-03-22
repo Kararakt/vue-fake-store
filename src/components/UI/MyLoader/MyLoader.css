@@ -2,7 +2,7 @@
   width: 6.25rem;
   height: 6.25rem;
   border-radius: 50%;
-  border: 3px dashed var(--f-red);
+  border: 0.1875rem dashed var(--f-red);
   animation: rotate 1s infinite linear;
   margin: 4rem auto;
 }

@@ -1,12 +1,12 @@
-<script setup>
+<script setup lang="ts">
 import './HomePage.css';
 
-import { ref, computed } from 'vue';
-import { orderBy } from 'lodash';
-
-import { selectArray, radioArray } from '../../utils/constants';
-import { products, isActiveLoader } from '../../utils/productHelper';
+import orderBy from 'lodash/orderBy';
 import router from '../../router/router';
+
+import { CounterItems, Products } from '../../models/models';
+import { selectArray, radioArray, checkboxArray } from '../../utils/constants';
+import { products, isActiveLoader } from '../../utils/productHelper';
 
 import MyInput from '../../components/UI/MyInput/MyInput.vue';
 import MySelect from '../../components/UI/MySelect/MySelect.vue';
@@ -15,14 +15,19 @@ import MyLoader from '../../components/UI/MyLoader/MyLoader.vue';
 import MyModal from '../../components/UI/MyModal/MyModal.vue';
 import Card from '../../components/Card/Card.vue';
 import MyButton from '../../components/UI/MyButton/MyButton.vue';
+import MyCheckBox from '../../components/UI/MyCheckBox/MyCheckBox.vue';
 
-const selectedSorting = ref('');
-const radioSorting = ref('asc');
-const search = ref('');
-const isActiveModal = ref(false);
-const cartPreview = ref({});
+const selectedSorting = ref<string>('');
+const radioSorting = ref<'asc' | 'desc'>('asc');
+const checkboxSorting = ref<string[]>([]);
 
-const handleClickPreview = (product) => {
+const search = ref<string>('');
+
+const isActiveModal = ref<boolean>(false);
+
+const cartPreview = ref<CounterItems<Products>>();
+
+const handleClickPreview = (product: CounterItems<Products>) => {
   cartPreview.value = product;
   isActiveModal.value = true;
 };
@@ -31,8 +36,10 @@ const sortedProducts = computed(() =>
   orderBy(
     products.value.filter(
       (item) =>
-        item.title.toLowerCase().includes(search.value.toLowerCase()) ||
-        item.category.toLowerCase().includes(search.value.toLowerCase())
+        item.title.toLowerCase().includes(search.value.toLowerCase()) &&
+        (checkboxSorting.value.length > 0
+          ? checkboxSorting.value.includes(item.category)
+          : item)
     ),
     selectedSorting.value,
     radioSorting.value
@@ -54,27 +61,41 @@ const handleClickCart = () => {
     <h1 class="section__title">Home</h1>
     <MyInput
       v-model="search"
-      placeholder="Enter a product name or category"
+      type="text"
+      placeholder="Enter a product name"
       name="search"
       class="input_type_text"
     />
     <form name="filter" class="home__filter">
-      <div class="home__radio">
-        <MyRadioButton
-          v-for="radio in radioArray"
-          :key="radio.id"
-          v-model="radioSorting"
-          :id="radio.id"
-          name="radio"
-          :value="radio.value"
-          :label="radio.label"
+      <div class="home__filter-container">
+        <div class="home__radio">
+          <MyRadioButton
+            v-for="radio in radioArray"
+            :key="radio.id"
+            v-model="radioSorting"
+            :id="radio.id"
+            name="radio"
+            :value="radio.value"
+            :label="radio.label"
+          />
+        </div>
+        <MySelect
+          v-model="selectedSorting"
+          :options="selectArray"
+          name="Select"
         />
       </div>
-      <MySelect
-        v-model="selectedSorting"
-        :options="selectArray"
-        name="Select"
-      />
+      <div class="home__checkbox">
+        <MyCheckBox
+          v-model="checkboxSorting"
+          v-for="item in checkboxArray"
+          :key="item.id"
+          :id="item.id"
+          :value="item.id"
+          :name="item.label"
+          :label="item.label"
+        />
+      </div>
     </form>
     <div v-if="sortedProductsHasItems" class="section__content">
       <Card
@@ -94,9 +115,13 @@ const handleClickCart = () => {
       Nothing find for Your request :(
     </div>
 
-    <MyLoader :model-value="isActiveLoader" />
+    <MyLoader v-model="isActiveLoader" />
 
-    <MyModal v-model="isActiveModal" @closeModal="handleCloseModal">
+    <MyModal
+      v-model="isActiveModal"
+      @closeModal="handleCloseModal"
+      v-if="cartPreview != null"
+    >
       <template #header>
         <div class="modal__header">
           <h3 class="modal__title">Product added to cart</h3>

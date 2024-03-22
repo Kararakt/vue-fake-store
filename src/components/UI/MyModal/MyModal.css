@@ -73,7 +73,7 @@
 }
 
 .button_type_modal {
-  border: 2px solid var(--f-red);
+  border: 0.125rem solid var(--f-red);
   background-color: transparent;
   color: var(--f-red);
 }

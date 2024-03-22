@@ -5,9 +5,6 @@
 @import url("./blocks/section/__title/section__title.css");
 @import url("./blocks/section/__content/section__content.css");
 
-@import url("./blocks/page/page.css");
-@import url("./blocks/page/_scroll/page_scroll.css");
-
 body::-webkit-scrollbar-track {
   background: transparent;
 }

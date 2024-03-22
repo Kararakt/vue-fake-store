@@ -1,33 +1,51 @@
-<script setup>
+<script setup lang="ts">
 import './Header.css';
-
-import { ref, onMounted, onUnmounted } from 'vue';
 
 import { navItems, cartProducts, iconBar } from '../../utils/constants';
 
-const menuActive = ref(false);
+const menuActive = ref<boolean>(false);
 
-const menu = ref(null);
-const btn = ref(null);
+const menu = ref<Element | null>(null);
 
-const handleClickIcon = () => (menuActive.value = !menuActive.value);
+const handleToggleMenu = () => (menuActive.value = !menuActive.value);
 
-const handleClickOutside = (event) => {
-  if (
-    event.target !== menu.value &&
-    !btn.value.contains(event.target) &&
-    menuActive.value
-  ) {
+const handleCloseMenu = () => {
+  if (menuActive.value) {
     menuActive.value = false;
   }
 };
 
-onMounted(() => {
-  document.addEventListener('click', handleClickOutside);
-});
+const handleClickOutside = (event: MouseEvent) => {
+  if (event.target === menu.value) {
+    handleCloseMenu();
+    console.log('Close');
+  }
+};
 
-onUnmounted(() => {
+const handleResize = () => {
+  if (window.innerWidth > 468 && menuActive.value) {
+    handleCloseMenu();
+  }
+};
+
+const addEventListener = () => {
+  document.addEventListener('click', handleClickOutside);
+
+  window.addEventListener('resize', handleResize);
+};
+
+const removeEventListener = () => {
   document.removeEventListener('click', handleClickOutside);
+
+  window.removeEventListener('resize', handleResize);
+};
+
+onMounted(addEventListener);
+
+onUnmounted(removeEventListener);
+
+watch(menuActive, () => {
+  document.body.style.overflowY = menuActive.value ? 'hidden' : 'auto';
 });
 </script>
 
@@ -47,6 +65,7 @@ onUnmounted(() => {
             :to="link.to"
             class="header__link"
             active-class="header__link_active"
+            @click="handleCloseMenu"
           >
             {{ link.name }}
           </RouterLink>
@@ -56,6 +75,7 @@ onUnmounted(() => {
             to="/Cart"
             class="header__link"
             active-class="header__link_active"
+            @click="handleCloseMenu"
           >
             Cart<sup class="header__cart-count">
               {{ cartProducts.length }}
@@ -65,8 +85,7 @@ onUnmounted(() => {
       </ul>
     </nav>
     <div
-      @click="handleClickIcon"
-      ref="btn"
+      @click="handleToggleMenu"
       :class="['header__menu-icon', { 'header__menu-icon_active': menuActive }]"
     >
       <div

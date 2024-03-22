@@ -11,10 +11,10 @@
 }
 
 .favorites__button {
+  width: auto;
   background-color: var(--f-red);
-  border: 2px solid var(--f-red);
+  border: 0.125rem solid var(--f-red);
   color: #fff;
-  width: min-content;
 }
 
 .favorites__button:hover {

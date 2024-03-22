@@ -1,10 +1,12 @@
-<script setup>
+<script setup lang="ts">
 import './FavoritesPage.css';
 
-import { favoritesArray, favoritesHasItem } from '../../utils/favoritesHelper';
+import { favoritesArray } from '../../utils/constants';
 
 import Card from '../../components/Card/Card.vue';
 import MyButton from '../../components/UI/MyButton/MyButton.vue';
+
+const favoritesHasItem = computed(() => favoritesArray.value.length > 0);
 </script>
 
 <template>
@@ -20,7 +22,7 @@ import MyButton from '../../components/UI/MyButton/MyButton.vue';
       <MyButton
         @click="$router.push('/')"
         type="button"
-        class-custom="favorites__button"
+        classCustom="favorites__button"
       >
         <template #text>Return to main page</template>
       </MyButton>

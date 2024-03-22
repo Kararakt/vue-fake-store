@@ -1,6 +1,7 @@
-import { ref } from 'vue';
+import { CounterItems, Products, OptionsSelect } from '../models/models';
 
-export const cartProducts = ref([]);
+export const cartProducts = ref<CounterItems<Products>[]>([]);
+export const favoritesArray = ref<Products[]>([]);
 
 export const navItems = [
   {
@@ -10,17 +11,12 @@ export const navItems = [
   },
   {
     id: 2,
-    name: 'Products',
-    to: '/Products',
-  },
-  {
-    id: 3,
     name: 'Favorites',
     to: '/Favorites',
   },
 ];
 
-export const selectArray = [
+export const selectArray: OptionsSelect[] = [
   {
     id: 1,
     name: 'Product Name',
@@ -56,26 +52,22 @@ export const radioArray = [
   },
 ];
 
-export const tabsTitle = [
+export const checkboxArray = [
   {
-    id: 1,
-    title: `Men's Clothing`,
-    category: `men's clothing`,
+    id: `men's clothing`,
+    label: `Men's clothing`,
   },
   {
-    id: 2,
-    title: `Women's Clothing`,
-    category: `women's clothing`,
+    id: `jewelery`,
+    label: 'Jewelry',
   },
   {
-    id: 3,
-    title: 'Jewelry',
-    category: 'jewelery',
+    id: 'electronics',
+    label: 'Electronics',
   },
   {
-    id: 4,
-    title: 'Electronics',
-    category: 'electronics',
+    id: `women's clothing`,
+    label: `Women's clothing`,
   },
 ];
 

@@ -1,27 +1,23 @@
-<script setup>
+<script setup lang="ts">
 import './MySelect.css';
 
-import { computed } from 'vue';
+import { selectArray } from '../../../utils/constants';
 
-const emit = defineEmits(['update:modelValue']);
+interface Props {
+  modelValue: string;
+  options: typeof selectArray;
+  name: string;
+}
 
-const props = defineProps({
-  modelValue: {
-    type: String,
-  },
-  options: {
-    type: Array,
-    default: () => [],
-  },
-  name: {
-    type: String,
-    required: true,
-  },
-});
+const emit = defineEmits<{
+  (event: 'update:modelValue', value: string): void;
+}>();
+
+const props = defineProps<Props>();
 
 const modelUpdate = computed({
   get: () => props.modelValue,
-  set: (newValue) => emit('update:modelValue', newValue),
+  set: (newValue: string) => emit('update:modelValue', newValue),
 });
 </script>
 

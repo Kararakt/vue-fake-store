@@ -1,6 +1,6 @@
 .input {
   color: var(--f-black);
-  border: 1px solid var(--f-black);
+  border: 0.0625rem solid var(--f-black);
   border-radius: 2rem;
   padding: 1rem 1.5rem;
   outline: 0;

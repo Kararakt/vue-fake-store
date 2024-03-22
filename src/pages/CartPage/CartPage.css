@@ -23,7 +23,7 @@
 .cart__button {
   width: min-content;
   background-color: transparent;
-  border: 1px solid var(--f-red);
+  border: 0.0625rem solid var(--f-red);
   color: var(--f-red);
 }
 
@@ -36,8 +36,8 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  border-top: 2px solid var(--f-yellow);
-  border-bottom: 2px solid var(--f-yellow);
+  border-top: 0.125rem solid var(--f-yellow);
+  border-bottom: 0.125rem solid var(--f-yellow);
   padding: 1rem 0;
 }
 

@@ -1,27 +1,21 @@
-<script setup>
+<script setup lang="ts">
 import './MyInput.css';
 
-import { computed } from 'vue';
+interface Props {
+  type: string;
+  modelValue: string | string[];
+  placeholder?: string;
+  name: string;
+  id?: string;
+}
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits<{
+  (event: 'update:modelValue', value: string | string[]): void;
+}>();
 
-const props = defineProps({
-  modelValue: {
-    type: String,
-    default: '',
-  },
-  placeholder: {
-    type: String,
-    required: true,
-  },
-  type: {
-    type: String,
-    default: 'text',
-  },
-  name: {
-    type: String,
-    required: true,
-  },
+const props = withDefaults(defineProps<Props>(), {
+  placeholder: '',
+  id: '',
 });
 
 const modelUpdate = computed({
@@ -36,6 +30,7 @@ const modelUpdate = computed({
     :placeholder="placeholder"
     :type="type"
     :name="name"
+    :id="id"
     autocomplete="off"
     class="input"
   />

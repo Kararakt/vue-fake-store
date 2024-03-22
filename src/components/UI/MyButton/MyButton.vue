@@ -1,21 +1,17 @@
-<script setup>
+<script setup lang="ts">
 import './MyButton.css';
 
-const emit = defineEmits(['click']);
+interface Props {
+  type: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  classCustom?: string;
+}
 
-const props = defineProps({
-  type: {
-    type: String,
-    required: true,
-  },
-  classCustom: {
-    type: [String, Array],
-    default: '',
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
+const emit = defineEmits<{ (event: 'click'): void }>();
+
+withDefaults(defineProps<Props>(), {
+  disabled: false,
+  customClass: '',
 });
 
 const handleClickButton = () => emit('click');

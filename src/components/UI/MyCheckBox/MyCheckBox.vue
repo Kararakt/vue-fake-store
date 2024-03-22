@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import './MyRadioButton.css';
+import './MyCheckBox.css';
 
 import MyInput from '../MyInput/MyInput.vue';
 
 interface Props {
   name: string;
   id: string;
-  modelValue: string;
+  modelValue: string[];
   value: string;
   label: string;
 }
 
 const emit = defineEmits<{
-  (event: 'update:modelValue', value: string): void;
+  (event: 'update:modelValue', value: string[]): void;
 }>();
 
 const props = defineProps<Props>();
@@ -24,15 +24,15 @@ const modelUpdate = computed({
 </script>
 
 <template>
-  <div class="radio">
+  <div class="checkbox">
     <MyInput
       v-model="modelUpdate"
-      type="radio"
-      :value="value"
+      type="checkbox"
       :name="name"
       :id="id"
-      class="radio__input"
+      :value="value"
+      class="checkbox__input"
     />
-    <label :for="id" class="radio__label">{{ label }}</label>
+    <label :for="id" class="checkbox__label">{{ label }}</label>
   </div>
 </template>

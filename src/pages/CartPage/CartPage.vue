@@ -1,11 +1,11 @@
-<script setup>
+<script setup lang="ts">
 import './CartPage.css';
 
-import { computed } from 'vue';
 import { sumBy } from 'lodash';
-
-import { cartProducts } from '../../utils/constants';
 import router from '../../router/router';
+
+import { CounterItems, Products } from '../../models/models';
+import { cartProducts } from '../../utils/constants';
 
 import MyButton from '../../components/UI/MyButton/MyButton.vue';
 import CartBlock from '../../components/CartBlock/CartBlock.vue';
@@ -23,7 +23,7 @@ const total = computed(
     )
 );
 
-const removeProduct = (item) => {
+const removeProduct = (item: CounterItems<Products>) => {
   const index = cartProducts.value.indexOf(item);
 
   if (index > -1) {
@@ -32,6 +32,14 @@ const removeProduct = (item) => {
 };
 
 const clearCart = () => (cartProducts.value.length = 0);
+
+const handleIncreaseCount = (cart: CounterItems<Products>) => {
+  cart.count++;
+};
+
+const handleDecreaseCount = (cart: CounterItems<Products>) => {
+  cart.count--;
+};
 
 const checkout = () => {
   clearCart();
@@ -52,18 +60,17 @@ const checkout = () => {
       <div class="cart__items">
         <CartBlock
           v-for="cart in cartProducts"
-          :item="cart.item"
-          :count="cart.count"
-          @increase-count="() => (cart.count += 1)"
-          @decrease-count="() => (cart.count -= 1)"
+          :item="cart"
+          @increase-count="handleIncreaseCount(cart)"
+          @decrease-count="handleDecreaseCount(cart)"
           @remove-product="removeProduct(cart)"
         />
       </div>
       <div class="cart__total">
         <span class="cart__cost">Total cost: ${{ total }}</span>
-        <MyButton type="button" @click="checkout" class-custom="cart__button"
-          ><template #text>Check out</template></MyButton
-        >
+        <MyButton type="button" @click="checkout" class-custom="cart__button">
+          <template #text>Check out</template>
+        </MyButton>
       </div>
     </div>
 

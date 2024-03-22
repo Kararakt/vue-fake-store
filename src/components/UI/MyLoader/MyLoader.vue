@@ -1,19 +1,15 @@
-<script setup>
+<script setup lang="ts">
 import './MyLoader.css';
 
-import { computed } from 'vue';
+const emit = defineEmits<{
+  (event: 'update:modelValue', value: boolean): void;
+}>();
 
-const emit = defineEmits(['update:modelValue']);
-
-const props = defineProps({
-  modelValue: {
-    type: Boolean,
-  },
-});
+const props = defineProps<{ modelValue: boolean }>();
 
 const modelUpdate = computed({
   get: () => props.modelValue,
-  set: (newValue) => emit('update:modelValue', newValue),
+  set: (newValue: boolean) => emit('update:modelValue', newValue),
 });
 </script>
 

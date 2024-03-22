@@ -21,7 +21,14 @@
   width: 15rem;
   height: 2rem;
   border-radius: 0.25em;
+  border: 0.0625rem solid transparent;
+  box-sizing: border-box;
   overflow: hidden;
+  transition: all 0.35s linear;
+}
+
+.select__container:hover {
+  border-color: var(--f-black);
 }
 
 .select__container::after {

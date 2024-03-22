@@ -1,29 +1,23 @@
-<script setup>
+<script setup lang="ts">
 import './Card.css';
 
-import { computed } from 'vue';
-
-import { cartProducts } from '../../utils/constants';
-import {
-  addItemToFavorites,
-  removeItemFromFavorites,
-  hasActiveHeart,
-} from '../../utils/favoritesHelper';
+import { CounterItems, Products } from '../../models/models';
+import { favoritesArray, cartProducts } from '../../utils/constants';
 
 import MyButton from '../UI/MyButton/MyButton.vue';
 
-const emit = defineEmits(['preview']);
+const emit = defineEmits<{
+  (event: 'preview', item: CounterItems<Products>): void;
+}>();
 
-const props = defineProps({
-  card: {
-    type: Object,
-    required: true,
-  },
-});
+const props = defineProps<{ card: Products }>();
 
-const addItemToCart = (item, count) => {
-  cartProducts.value.push({ item, count: count });
-  emit('preview', { item, count });
+// Логика добавления в корзину
+
+const handleAddToCart = (item: Products, count: number) => {
+  const newItem = { item, count };
+  cartProducts.value.push(newItem);
+  emit('preview', newItem);
 };
 
 const isOrdered = computed(() => {
@@ -32,15 +26,34 @@ const isOrdered = computed(() => {
   );
 });
 
+// Логика добавления в избранное
+
+const handleAddToFavorites = (item: Products) => {
+  favoritesArray.value.push(item);
+};
+
+const isHeart = (item: Products) => {
+  const favoritesItem = favoritesArray.value.find((el) => el.id === item.id);
+  return favoritesItem != null ? true : false;
+};
+
+const handleRemoveIFromFavorites = (item: Products) => {
+  const element = favoritesArray.value.find((el) => el.id === item.id);
+  if (element) {
+    const index = favoritesArray.value.indexOf(element);
+    favoritesArray.value.splice(index, 1);
+  }
+};
+
 const heartActive = computed(() => {
-  return props.card && hasActiveHeart(props.card);
+  return props.card && isHeart(props.card);
 });
 
-const toggleHeartStatus = () => {
+const handleToggleHeart = () => {
   if (heartActive.value) {
-    removeItemFromFavorites(props.card);
+    handleRemoveIFromFavorites(props.card);
   } else {
-    addItemToFavorites(props.card);
+    handleAddToFavorites(props.card);
   }
 };
 </script>
@@ -63,12 +76,12 @@ const toggleHeartStatus = () => {
       <div class="card__wrapper">
         <span class="card__price">${{ card.price }}</span>
         <font-awesome-icon
-          @click="toggleHeartStatus()"
+          @click="handleToggleHeart"
           icon="fa-solid fa-heart"
           :class="['card__heart', { card__heart_active: heartActive }]"
         />
       </div>
-      <form @submit.prevent="addItemToCart(card, 1)">
+      <form @submit.prevent="handleAddToCart(card, 1)">
         <MyButton
           type="submit"
           :disabled="isOrdered"
