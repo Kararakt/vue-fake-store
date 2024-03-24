@@ -1,0 +1,31 @@
+.app {
+  font-family: $font-family-manrope, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-size: $standard-font-size;
+  font-weight: $font-weight-normal;
+
+  max-width: 96rem;
+  min-width: 20rem;
+
+  min-height: 100vh;
+  @include flex-layout;
+  margin: $no-margin auto;
+  scroll-behavior: smooth;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  &__container {
+    flex-grow: 1;
+    padding: 3rem $small-padding;
+  }
+
+  &__header {
+    position: sticky;
+    top: $no-top;
+    z-index: $index-30;
+  }
+}

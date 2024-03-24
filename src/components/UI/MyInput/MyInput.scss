@@ -1,0 +1,25 @@
+.input {
+  color: $black-color;
+  border: $thin-border solid $black-color;
+  border-radius: 2rem;
+  padding: $standard-padding $large-padding;
+  outline: $no-outline;
+  box-sizing: border-box;
+  @include transition;
+
+  &:focus,
+  &:hover {
+    border-color: $yellow-color;
+  }
+
+  &::placeholder {
+    @include transition;
+    color: $black-color;
+  }
+
+  &:focus {
+    &::placeholder {
+      color: $yellow-color;
+    }
+  }
+}

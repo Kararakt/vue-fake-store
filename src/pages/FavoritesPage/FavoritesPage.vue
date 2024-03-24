@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import './FavoritesPage.css';
+import './FavoritesPage.scss';
 
 import { favoritesArray } from '../../utils/constants';
 
@@ -10,9 +10,9 @@ const favoritesHasItem = computed(() => favoritesArray.value.length > 0);
 </script>
 
 <template>
-  <section class="favorites section">
-    <h1 class="section__title">My favorites</h1>
-    <div class="section__content" v-if="favoritesHasItem">
+  <section class="favorites">
+    <h1 class="favorites__title">My favorites</h1>
+    <div class="favorites__content" v-if="favoritesHasItem">
       <Card v-for="item in favoritesArray" :key="item.id" :card="item" />
     </div>
     <div class="favorites__empty" v-else>

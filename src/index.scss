@@ -1,0 +1,20 @@
+@import url('./vendor/normalize.scss');
+@import url('./vendor/fonts/fonts.scss');
+
+:root {
+  scrollbar-color: $yellow-color $white-color;
+  scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: hsl(47, 92%, 69%);
+  border-radius: 0.25rem;
+}

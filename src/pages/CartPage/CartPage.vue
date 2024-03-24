@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import './CartPage.css';
+import './CartPage.scss';
 
 import { sumBy } from 'lodash';
 import router from '../../router/router';
@@ -48,8 +48,8 @@ const checkout = () => {
 </script>
 
 <template>
-  <section class="cart section">
-    <h1 class="section__title">Cart</h1>
+  <section class="cart">
+    <h1 class="cart__title">Cart</h1>
     <div v-if="cartProductsHasItems">
       <div class="cart__info">
         <p class="cart__count">Item Quantity: {{ cartProductsCount }}</p>

@@ -1,0 +1,31 @@
+.favorites {
+  &__title {
+    @include section-title;
+  }
+
+  &__content {
+    @include section-content;
+  }
+
+  &__empty {
+    @include flex-layout-center;
+  }
+
+  &__empty-text {
+    font-size: $intermediate-font-size;
+    font-weight: $font-weight-bold;
+    margin-bottom: $standard-margin;
+  }
+
+  &__button {
+    width: auto;
+    background-color: $red-color;
+    border: $standard-borer solid $red-color;
+    color: $white-color;
+
+    &:hover {
+      background-color: $white-color;
+      color: $red-color;
+    }
+  }
+}

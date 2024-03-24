@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import './Card.css';
+import './Card.scss';
 
 import { CounterItems, Products } from '../../models/models';
 import { favoritesArray, cartProducts } from '../../utils/constants';
@@ -85,7 +85,7 @@ const handleToggleHeart = () => {
         <MyButton
           type="submit"
           :disabled="isOrdered"
-          classCustom="button_type_card"
+          classCustom="card__button_type_card"
         >
           <template #text>
             {{ !isOrdered ? 'Add to cart' : 'Already in cart' }}

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import './MyInput.css';
+import './MyInput.scss';
 
 interface Props {
   type: string;

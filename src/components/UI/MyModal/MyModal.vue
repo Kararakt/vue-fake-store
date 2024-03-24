@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import './MyModal.css';
+import './MyModal.scss';
 
 const emits = defineEmits<{
   (event: 'closeModal'): void;

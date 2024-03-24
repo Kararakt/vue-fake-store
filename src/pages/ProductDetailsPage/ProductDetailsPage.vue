@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import './ProductDetailsPage.css';
-
-import { useRoute } from 'vue-router';
+import './ProductDetailsPage.scss';
 
 import { cartProducts } from '../../utils/constants';
 import { products } from '../../utils/productHelper';
@@ -32,8 +30,8 @@ const addItemToBasket = (item: Products, count: number) => {
 </script>
 
 <template>
-  <section class="details section">
-    <h1 class="section__title">{{ product.title }}</h1>
+  <section class="details">
+    <h1 class="details__title">{{ product.title }}</h1>
     <div class="details__container">
       <img :src="product.image" :alt="product.title" class="details__image" />
       <div class="details__info">

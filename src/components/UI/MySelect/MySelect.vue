@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import './MySelect.css';
+import './MySelect.scss';
 
 import { selectArray } from '../../../utils/constants';
 

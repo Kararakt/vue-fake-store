@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import './HomePage.css';
+import './HomePage.scss';
 
 import orderBy from 'lodash/orderBy';
 import router from '../../router/router';
@@ -25,7 +25,10 @@ const search = ref<string>('');
 
 const isActiveModal = ref<boolean>(false);
 
-const cartPreview = ref<CounterItems<Products>>();
+const cartPreview = ref<CounterItems<Products>>({
+  count: 0,
+  item: products.value[0],
+});
 
 const handleClickPreview = (product: CounterItems<Products>) => {
   cartPreview.value = product;
@@ -57,14 +60,14 @@ const handleClickCart = () => {
 </script>
 
 <template>
-  <section class="home section">
-    <h1 class="section__title">Home</h1>
+  <section class="home">
+    <h1 class="home__title">Home</h1>
     <MyInput
       v-model="search"
       type="text"
       placeholder="Enter a product name"
       name="search"
-      class="input_type_text"
+      class="home__input"
     />
     <form name="filter" class="home__filter">
       <div class="home__filter-container">
@@ -97,7 +100,7 @@ const handleClickCart = () => {
         />
       </div>
     </form>
-    <div v-if="sortedProductsHasItems" class="section__content">
+    <div v-if="sortedProductsHasItems" class="home__content">
       <Card
         v-for="product in sortedProducts"
         @preview="handleClickPreview"
@@ -117,16 +120,12 @@ const handleClickCart = () => {
 
     <MyLoader v-model="isActiveLoader" />
 
-    <MyModal
-      v-model="isActiveModal"
-      @closeModal="handleCloseModal"
-      v-if="cartPreview != null"
-    >
+    <MyModal v-model="isActiveModal" @closeModal="handleCloseModal">
       <template #header>
         <div class="modal__header">
           <h3 class="modal__title">Product added to cart</h3>
           <form @submit.prevent="handleClickCart">
-            <MyButton type="submit" classCustom="button_type_modal">
+            <MyButton type="submit" classCustom="modal__button">
               <template #text>Go to cart</template>
             </MyButton>
           </form>

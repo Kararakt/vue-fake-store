@@ -1,0 +1,45 @@
+@mixin section-title {
+  font-size: 2rem;
+  font-weight: $font-weight-bold;
+  text-align: center;
+  margin: $no-margin $no-margin $large-margin;
+}
+
+@mixin section-content {
+  margin-top: $extra-large-margin;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $large-gap $standard-gap;
+}
+
+@mixin flex-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-layout-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin transition(
+  $properties: all,
+  $duration: 0.35s,
+  $timing-function: linear
+) {
+  transition: $properties $duration $timing-function;
+}

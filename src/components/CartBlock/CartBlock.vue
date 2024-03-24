@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import './CartBlock.css';
+import './CartBlock.scss';
 
 import { Products, CounterItems } from '../../models/models';
 

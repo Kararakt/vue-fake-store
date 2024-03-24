@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import './Footer.css';
+import './Footer.scss';
 
 const currentYear = new Date().getFullYear();
 </script>

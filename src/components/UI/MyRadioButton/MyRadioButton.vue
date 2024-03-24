@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import './MyRadioButton.css';
+import './MyRadioButton.scss';
 
 import MyInput from '../MyInput/MyInput.vue';
 

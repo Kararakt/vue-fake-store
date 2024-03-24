@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import './Header.css';
+import './Header.scss';
 
 import { navItems, cartProducts, iconBar } from '../../utils/constants';
 

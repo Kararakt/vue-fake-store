@@ -1,0 +1,48 @@
+.select {
+  appearance: none;
+  outline: $no-outline;
+  border: $no-border;
+  box-shadow: none;
+  flex: 1;
+  padding: $no-padding $standard-padding;
+  color: $white-color;
+  background-color: $yellow-color;
+  background-image: none;
+  cursor: pointer;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    width: $dimension-15;
+    height: $dimension-2;
+    border-radius: $standard-border-radius;
+    border: $thin-border solid transparent;
+    box-sizing: border-box;
+    overflow: hidden;
+    @include transition;
+
+    &:hover {
+      border-color: $black-color;
+
+      &::after {
+        color: $red-color;
+      }
+    }
+
+    &::after {
+      content: '\25BC';
+      position: absolute;
+      top: $no-top;
+      right: $no-right;
+      padding: 0.35rem $small-padding;
+      background-color: $yellow-color;
+      color: $black-color;
+      @include transition($timing-function: ease);
+      pointer-events: none;
+    }
+  }
+}

@@ -1,0 +1,118 @@
+.card {
+  border: $thin-border solid $yellow-color;
+  padding: $standard-padding;
+  border-radius: 0.5rem;
+  max-width: 28rem;
+  min-width: 19rem;
+  width: $full-dimension;
+  @include transition;
+  box-sizing: border-box;
+
+  &:hover {
+    box-shadow: 0 0.3125rem 1.375rem hsla(0, 0%, 0%, 0.2);
+  }
+
+  &__container {
+    overflow: hidden;
+    position: relative;
+    @include flex-layout;
+    justify-content: space-between;
+    gap: $small-gap;
+    height: $full-dimension;
+    width: $full-dimension;
+  }
+
+  &__image {
+    max-height: 10rem;
+    max-width: $full-dimension;
+    margin: $standard-margin auto;
+    display: block;
+    cursor: pointer;
+    @include transition;
+
+    &:hover {
+      transform: scale(1.15);
+    }
+  }
+
+  &__category {
+    margin: $no-margin;
+  }
+
+  &__title {
+    color: $black-color;
+    font-size: $extra-standard-font-size;
+    font-weight: $font-weight-semibold;
+    margin: $no-margin;
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: $medium-gap;
+  }
+
+  &__star {
+    font-size: $large-font-size;
+    color: $yellow-color;
+    cursor: default;
+  }
+
+  &__rate {
+    font-weight: $font-weight-bold;
+  }
+
+  &__wrapper {
+    @include flex-between;
+    gap: $standard-gap;
+    margin-bottom: $small-margin;
+  }
+
+  &__price {
+    color: $red-color;
+    font-size: $extra-standard-font-size;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__heart {
+    color: $black-color;
+    height: $large-dimension;
+    width: $large-dimension;
+    cursor: pointer;
+    @include transition;
+
+    &_active,
+    &:hover {
+      color: $red-color;
+    }
+  }
+
+  &__button {
+    &_type_card {
+      background-color: $yellow-color;
+      color: $white-color;
+      border: $standard-borer solid $yellow-color;
+      width: $full-dimension;
+
+      &:hover {
+        background-color: $white-color;
+        color: $yellow-color;
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        background-color: $yellow-color;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .card {
+    padding: $small-padding;
+
+    &__title {
+      font-size: $intermediate-font-size;
+    }
+  }
+}

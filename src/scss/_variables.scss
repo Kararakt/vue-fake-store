@@ -1,0 +1,92 @@
+// цветовое пространство
+$yellow-color: hsl(47, 92%, 69%);
+$white-color: hsl(0, 0%, 100%);
+$black-color: hsl(216, 100%, 3%);
+$red-color: hsl(7, 70%, 30%);
+$gray-color: hsl(0, 0%, 89%);
+
+// font-family
+$font-family-manrope: 'Manrope';
+
+// font-size
+$standard-font-size: 1rem;
+$intermediate-font-size: 1.125rem;
+$extra-standard-font-size: 1.25rem;
+$large-font-size: 1.5rem;
+
+// font-weight
+$font-weight-normal: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// высота и ширина элементов
+$full-dimension: 100%;
+$min-dimension: min-content;
+$large-dimension: 1.5rem;
+$large-half-dimension: 2.5rem;
+$extra-large-dimension: 2.875rem;
+$dimension-2: 2rem;
+$dimension-15: 15rem;
+
+// gap
+$small-gap: 0.25rem;
+$medium-gap: 0.5rem;
+$standard-gap: 1rem;
+$large-gap: 1.5rem;
+
+// margin
+$no-margin: 0;
+$small-margin: 0.5rem;
+$standard-margin: 1rem;
+$large-margin: 1.5rem;
+$extra-large-margin: 2rem;
+$margin-0_625: 0.625rem;
+
+// padding
+$no-padding: 0;
+$small-padding: 0.5rem;
+$standard-padding: 1rem;
+$large-padding: 1.5rem;
+$extra-large-padding: 2rem;
+
+// border
+$no-border: 0;
+$thin-border: 0.0625rem;
+$standard-borer: 0.125rem;
+
+// outline
+$no-outline: 0;
+
+// border-radius
+$no-border-radius: 0;
+$standard-border-radius: 0.375rem;
+$circle-border-radius: 50%;
+
+// background size
+$background-size-50-per: 50%;
+
+// opacity
+$no-opacity: 0;
+$shadow-opacity: 0.5;
+
+// z-index
+$index-1: 1;
+$index-30: 30;
+
+// top
+$no-top: 0;
+
+// left
+$no-left: 0;
+
+// right
+$no-right: 0;
+
+// rotate
+$rotate-z-45: 45deg;
+
+// flex shrink
+$flex-shrink-0: 0;
+
+// flex grow
+$flex-grow-0: 0;

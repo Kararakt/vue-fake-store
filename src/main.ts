@@ -1,4 +1,4 @@
-import './index.css';
+import './index.scss';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';

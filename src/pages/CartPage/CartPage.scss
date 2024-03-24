@@ -1,0 +1,77 @@
+.cart {
+  &__title {
+    @include section-title;
+  }
+
+  &__empty {
+    @include flex-layout-center;
+    gap: $standard-gap;
+  }
+
+  &__count {
+    font-size: $intermediate-font-size;
+    font-weight: $font-weight-semibold;
+    color: $black-color;
+    margin: $no-margin;
+  }
+
+  &__info {
+    @include flex-between;
+    gap: $medium-gap;
+    margin-bottom: $standard-margin;
+  }
+
+  &__button {
+    width: $min-dimension;
+    background-color: transparent;
+    border: $thin-border solid $red-color;
+    color: $red-color;
+
+    &:hover {
+      background-color: $red-color;
+      color: $white-color;
+    }
+  }
+
+  &__items {
+    @include flex-layout;
+    gap: 2rem;
+    border-top: $standard-borer solid $yellow-color;
+    border-bottom: $standard-borer solid $yellow-color;
+    padding: $standard-padding $no-padding;
+  }
+
+  &__empty-message {
+    margin: $no-margin;
+    color: $black-color;
+    font-size: $extra-standard-font-size;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__total {
+    @include flex-between;
+    gap: $medium-gap;
+    margin-top: $extra-large-margin;
+  }
+
+  &__cost {
+    font-size: $extra-standard-font-size;
+    font-weight: $font-weight-bold;
+    white-space: nowrap;
+    color: $black-color;
+  }
+}
+
+@media screen and (max-width: 748px) {
+  .cart__items {
+    border: $no-border;
+    gap: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .cart__total {
+    flex-direction: column;
+    gap: $standard-gap;
+  }
+}

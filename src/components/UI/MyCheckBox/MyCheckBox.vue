@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import './MyCheckBox.css';
+import './MyCheckBox.scss';
 
 import MyInput from '../MyInput/MyInput.vue';
 

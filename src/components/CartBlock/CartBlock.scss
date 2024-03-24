@@ -1,0 +1,79 @@
+.cart-block {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: $large-gap $medium-gap;
+
+  &__name {
+    display: flex;
+    align-items: center;
+    gap: $medium-gap;
+  }
+
+  &__image {
+    display: block;
+    max-width: 8rem;
+    object-fit: contain;
+    cursor: pointer;
+    @include transition(linear);
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__title {
+    margin: $no-margin;
+    font-size: $standard-font-size;
+    font-weight: $font-weight-bold;
+    color: $black-color;
+  }
+
+  &__price {
+    margin: auto;
+    font-size: $extra-standard-font-size;
+    font-weight: $font-weight-bold;
+    color: $red-color;
+  }
+
+  &__buttons {
+    width: 10.5rem;
+    height: $min-dimension;
+    @include flex-center;
+    margin: auto;
+    gap: $standard-gap;
+    padding: $standard-padding $extra-large-padding;
+    font-size: $large-font-size;
+  }
+
+  &__button {
+    background-color: $yellow-color;
+    color: $white-color;
+    border: $no-border;
+
+    &:hover,
+    &_disabled {
+      opacity: $shadow-opacity;
+    }
+  }
+
+  &__delete {
+    height: $large-dimension;
+    width: $large-dimension;
+    cursor: pointer;
+    color: $red-color;
+    margin: auto;
+    @include transition(linear);
+
+    &:hover {
+      opacity: $shadow-opacity;
+    }
+  }
+}
+
+@media screen and (max-width: 748px) {
+  .cart-block {
+    border-top: $standard-borer solid $yellow-color;
+    border-bottom: $standard-borer solid $yellow-color;
+    padding: $standard-padding $no-padding;
+  }
+}

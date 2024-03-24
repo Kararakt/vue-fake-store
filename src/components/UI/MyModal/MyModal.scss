@@ -1,0 +1,145 @@
+@mixin common-transition {
+  $properties: opacity;
+  $duration: 0.5s;
+  $timing-function: ease;
+
+  @include transition($properties, $duration, $timing-function);
+}
+
+.modal {
+  position: fixed;
+  z-index: $index-30;
+  display: flex;
+  top: $no-top;
+  bottom: 0;
+  left: $no-left;
+  right: $no-right;
+  background-color: hsla(0, 0%, 0%, 0.75);
+
+  &__content {
+    background-color: $white-color;
+    margin: auto;
+    @include flex-layout;
+    border-radius: 1.5rem;
+    min-height: 3.5rem;
+    min-width: 18rem;
+    width: $full-dimension;
+    max-width: 40rem;
+    padding: $large-padding;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  &__close {
+    color: $yellow-color;
+    position: absolute;
+    height: $dimension-2;
+    width: $large-half-dimension;
+    cursor: pointer;
+    right: -2rem;
+    top: -2.5rem;
+    @include transition;
+
+    &:hover {
+      opacity: $shadow-opacity;
+    }
+  }
+
+  &__title {
+    margin: $no-margin;
+    font-size: $large-font-size;
+  }
+
+  &__header {
+    @include flex-between;
+    gap: $medium-gap;
+  }
+
+  &__image-container {
+    display: flex;
+    gap: $standard-gap;
+    margin-top: $extra-large-margin;
+  }
+
+  &__image {
+    height: $dimension-15;
+    max-width: $dimension-15;
+    display: block;
+    object-fit: contain;
+  }
+
+  &__image-info {
+    @include flex-layout;
+    justify-content: center;
+    gap: $small-gap;
+    font-size: $intermediate-font-size;
+    color: $black-color;
+  }
+
+  &__image-title {
+    color: $red-color;
+    margin: $no-margin;
+    font-size: $extra-standard-font-size;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__button {
+    border: $standard-borer solid $red-color;
+    background-color: transparent;
+    color: $red-color;
+
+    &:hover {
+      background-color: $red-color;
+      color: $white-color;
+    }
+  }
+
+  &-enter-active,
+  &-leave-active {
+    @include common-transition;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    @include common-transition;
+    opacity: $no-opacity;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .modal {
+    padding: $no-padding $standard-padding;
+
+    &__content {
+      padding: $standard-padding;
+    }
+
+    &__close {
+      top: -3rem;
+      right: -0.5rem;
+    }
+
+    &__header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__image {
+      max-width: $full-dimension;
+    }
+
+    &__image-container {
+      flex-direction: column;
+      gap: $medium-gap;
+      margin-top: $large-margin;
+    }
+
+    &__image-title {
+      font-size: $standard-font-size;
+    }
+
+    &__title {
+      font-size: $intermediate-font-size;
+    }
+  }
+}

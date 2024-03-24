@@ -7,10 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Card: typeof import('./src/components/Card/Card.vue')['default'];
-    CartBlock: typeof import('./src/components/CartBlock/CartBlock.vue')['default'];
-    MyCheckBox: typeof import('./src/components/UI/MyCheckBox/MyCheckBox.vue')['default'];
-    RouterLink: typeof import('vue-router')['RouterLink'];
-    RouterView: typeof import('vue-router')['RouterView'];
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
   }
 }

@@ -1,0 +1,13 @@
+.button {
+  padding: $small-padding $standard-padding;
+  font-size: $intermediate-font-size;
+  font-weight: $font-weight-semibold;
+  border-radius: 1rem;
+  white-space: nowrap;
+  cursor: pointer;
+  @include transition;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}

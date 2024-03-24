@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import './MyLoader.css';
+import './MyLoader.scss';
 
 const emit = defineEmits<{
   (event: 'update:modelValue', value: boolean): void;

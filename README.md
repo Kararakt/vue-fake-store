@@ -17,7 +17,7 @@
 ## Технологии
 - Vite
 - HTML
-- CSS
+- SCSS
 - TypeScript
 - Vue 3
 - Fake Store API
