@@ -1,4 +1,6 @@
 .checkbox {
+  display: flex;
+
   &__input {
     position: absolute;
     z-index: -$index-1;

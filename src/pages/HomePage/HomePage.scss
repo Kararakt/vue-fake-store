@@ -34,6 +34,10 @@
   &__filter-container {
     display: flex;
     gap: $standard-gap;
+
+    @media screen and (max-width: $screen-md) {
+      flex-direction: column;
+    }
   }
 
   &__checkbox {
@@ -45,11 +49,5 @@
 
   &__input {
     width: $full-dimension;
-  }
-}
-
-@media screen and (max-width: 648px) {
-  .home__filter-container {
-    flex-direction: column;
   }
 }

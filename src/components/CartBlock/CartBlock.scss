@@ -3,6 +3,12 @@
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: $large-gap $medium-gap;
 
+  @media screen and (max-width: $screen-lg) {
+    border-top: $standard-borer solid $yellow-color;
+    border-bottom: $standard-borer solid $yellow-color;
+    padding: $standard-padding $no-padding;
+  }
+
   &__name {
     display: flex;
     align-items: center;
@@ -67,13 +73,5 @@
     &:hover {
       opacity: $shadow-opacity;
     }
-  }
-}
-
-@media screen and (max-width: 748px) {
-  .cart-block {
-    border-top: $standard-borer solid $yellow-color;
-    border-bottom: $standard-borer solid $yellow-color;
-    padding: $standard-padding $no-padding;
   }
 }

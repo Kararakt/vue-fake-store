@@ -6,6 +6,10 @@
   &__container {
     display: flex;
     gap: $large-gap;
+
+    @media screen and (max-width: $screen-xl) {
+      flex-direction: column;
+    }
   }
 
   &__image {
@@ -14,6 +18,14 @@
     max-width: 25rem;
     max-height: 15rem;
     height: auto;
+
+    @media screen and (max-width: $screen-xl) {
+      margin: $no-margin auto;
+    }
+
+    @media screen and (max-width: $screen-sm) {
+      max-width: $full-dimension;
+    }
   }
 
   &__info {
@@ -28,6 +40,10 @@
     font-weight: $font-weight-semibold;
     font-size: $intermediate-font-size;
     margin: $no-margin;
+
+    @media screen and (max-width: $screen-sm) {
+      font-size: $standard-font-size;
+    }
   }
 
   &__category {
@@ -57,30 +73,6 @@
       opacity: 0.4;
       background-color: $red-color;
       color: $white-color;
-    }
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .details {
-    &__container {
-      flex-direction: column;
-    }
-
-    &__image {
-      margin: $no-margin auto;
-    }
-  }
-}
-
-@media screen and (max-width: 468px) {
-  .details {
-    &__image {
-      max-width: $full-dimension;
-    }
-
-    &__description {
-      font-size: $standard-font-size;
     }
   }
 }

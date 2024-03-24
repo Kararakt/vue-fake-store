@@ -8,6 +8,10 @@
   @include transition;
   box-sizing: border-box;
 
+  @media screen and (max-width: $screen-xs) {
+    padding: $small-padding;
+  }
+
   &:hover {
     box-shadow: 0 0.3125rem 1.375rem hsla(0, 0%, 0%, 0.2);
   }
@@ -44,6 +48,10 @@
     font-size: $extra-standard-font-size;
     font-weight: $font-weight-semibold;
     margin: $no-margin;
+
+    @media screen and (max-width: $screen-xs) {
+      font-size: $intermediate-font-size;
+    }
   }
 
   &__rating {
@@ -104,16 +112,6 @@
         background-color: $yellow-color;
         color: $white-color;
       }
-    }
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .card {
-    padding: $small-padding;
-
-    &__title {
-      font-size: $intermediate-font-size;
     }
   }
 }

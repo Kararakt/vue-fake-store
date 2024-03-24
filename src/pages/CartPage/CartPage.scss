@@ -39,6 +39,11 @@
     border-top: $standard-borer solid $yellow-color;
     border-bottom: $standard-borer solid $yellow-color;
     padding: $standard-padding $no-padding;
+
+    @media screen and (max-width: $screen-lg) {
+      border: $no-border;
+      gap: 1.25rem;
+    }
   }
 
   &__empty-message {
@@ -52,6 +57,11 @@
     @include flex-between;
     gap: $medium-gap;
     margin-top: $extra-large-margin;
+
+    @media screen and (max-width: $screen-xs) {
+      flex-direction: column;
+      gap: $standard-gap;
+    }
   }
 
   &__cost {
@@ -59,19 +69,5 @@
     font-weight: $font-weight-bold;
     white-space: nowrap;
     color: $black-color;
-  }
-}
-
-@media screen and (max-width: 748px) {
-  .cart__items {
-    border: $no-border;
-    gap: 1.25rem;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .cart__total {
-    flex-direction: column;
-    gap: $standard-gap;
   }
 }

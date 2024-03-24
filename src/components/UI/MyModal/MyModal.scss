@@ -16,6 +16,10 @@
   right: $no-right;
   background-color: hsla(0, 0%, 0%, 0.75);
 
+  @media screen and (max-width: $screen-xl) {
+    padding: $no-padding $standard-padding;
+  }
+
   &__content {
     background-color: $white-color;
     margin: auto;
@@ -28,6 +32,10 @@
     padding: $large-padding;
     box-sizing: border-box;
     position: relative;
+
+    @media screen and (max-width: $screen-xl) {
+      padding: $standard-padding;
+    }
   }
 
   &__close {
@@ -43,22 +51,46 @@
     &:hover {
       opacity: $shadow-opacity;
     }
+
+    @media screen and (max-width: $screen-xl) {
+      top: -3rem;
+      right: -0.5rem;
+    }
+
+    @media screen and (max-width: $screen-xs) {
+      height: 1.65rem;
+    }
   }
 
   &__title {
     margin: $no-margin;
     font-size: $large-font-size;
+
+    @media screen and (max-width: $screen-xl) {
+      font-size: $intermediate-font-size;
+    }
   }
 
   &__header {
     @include flex-between;
     gap: $medium-gap;
+
+    @media screen and (max-width: $screen-xl) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   &__image-container {
     display: flex;
     gap: $standard-gap;
     margin-top: $extra-large-margin;
+
+    @media screen and (max-width: $screen-xl) {
+      flex-direction: column;
+      gap: $medium-gap;
+      margin-top: $large-margin;
+    }
   }
 
   &__image {
@@ -66,6 +98,10 @@
     max-width: $dimension-15;
     display: block;
     object-fit: contain;
+
+    @media screen and (max-width: $screen-xl) {
+      max-width: $full-dimension;
+    }
   }
 
   &__image-info {
@@ -81,6 +117,10 @@
     margin: $no-margin;
     font-size: $extra-standard-font-size;
     font-weight: $font-weight-semibold;
+
+    @media screen and (max-width: $screen-xl) {
+      font-size: $standard-font-size;
+    }
   }
 
   &__button {
@@ -103,51 +143,5 @@
   &-leave-to {
     @include common-transition;
     opacity: $no-opacity;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .modal {
-    padding: $no-padding $standard-padding;
-
-    &__content {
-      padding: $standard-padding;
-    }
-
-    &__close {
-      top: -3rem;
-      right: -0.5rem;
-    }
-
-    &__header {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    &__image {
-      max-width: $full-dimension;
-    }
-
-    &__image-container {
-      flex-direction: column;
-      gap: $medium-gap;
-      margin-top: $large-margin;
-    }
-
-    &__image-title {
-      font-size: $standard-font-size;
-    }
-
-    &__title {
-      font-size: $intermediate-font-size;
-    }
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .modal {
-    &__close {
-      height: 1.65rem;
-    }
   }
 }
